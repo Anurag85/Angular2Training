@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
         <div class="navbar-header">
             <a href="#" class="navbar-brand">{{cmpHeading}}</a>
         </div>
+        <ul class="nav navbar-nav">
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/list">Shopping List</a></li>
+            <li><a routerLink="/manage">Manage Products</a></li>
+        </ul>
     </nav>`
 })
 

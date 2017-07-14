@@ -14,7 +14,9 @@
         <td><button class="btn btn-danger btn-xs" (click)="cancelItem(i)">X</button>
             {{item.name}}</td>
         <td>{{item.price}}</td>
-        <td>{{item.qty}}</td>
+        <!--<td>{{item.qty}}</td>-->
+        <!--<td><input type="number" [value]="item.qty" style="width:50px"></td>-->
+        <td><input type="number" [(ngModel)]="item.qty" style="width:50px"></td>
         <td>{{item.price * item.qty}}</td>
     </tr>
     <tr>

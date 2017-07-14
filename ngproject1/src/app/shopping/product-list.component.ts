@@ -12,9 +12,13 @@ import { CartItem } from '../models/cartitem.model';
 export class ProductListComponent {
     products:Product[] = [];
 
-    constructor(private cs:CartService){
-        let ps:ProductService = new ProductService();
-        this.products = ps.getProducts();
+    constructor(private ps:ProductService, private cs:CartService){
+        // let ps:ProductService = new ProductService();
+        // this.products = ps.getProducts();
+        ps.getProducts().subscribe(
+            (successResponse) => this.products = successResponse.json(),
+            (errorResponse) => console.log("Get error -- ",errorResponse)
+        )
     }
 
     addToCart(selectedProduct:Product){

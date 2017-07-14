@@ -7,7 +7,19 @@ export class CartService {
     private cartItemsData:CartItem[] = [];
 
     addCartItem(newItem:CartItem){
-        this.cartItemsData.push(newItem);
+        let isProductAlreadyAvailableInCart:boolean = false; 
+        for (let i = 0; i < this.cartItemsData.length; i++) {
+            let cItem = this.cartItemsData[i];
+            if(cItem.name == newItem.name)
+            {
+                isProductAlreadyAvailableInCart = true;
+                cItem.qty++;
+                break;
+            }
+        }
+        if(!isProductAlreadyAvailableInCart) {
+            this.cartItemsData.push(newItem);
+        }
     }
 
     deleteCartItem(idx:number){
